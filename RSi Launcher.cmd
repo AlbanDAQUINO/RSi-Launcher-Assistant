@@ -9,7 +9,7 @@ SET INSTALL_LOCATION=C:\Games\Roberts Space Industries
 
 ECHO Ultimate Shaders/USER directory remover for Star Citizen
 ECHO --------------------------------------------------------
-ECHO - v0.1 (AlexGranger)
+ECHO - v0.2 (AlexGranger)
 ECHO.
 
 ECHO ===== LIVE Environment :
