@@ -14,20 +14,20 @@ ECHO.
 
 ECHO ===== LIVE Environment :
 IF EXIST "%INSTALL_LOCATION%\StarCitizen\LIVE\USER\Client\0\Shaders" (
-  ECHO Removing Shaders in the LIVE Environment !
+  ECHO Removing Shaders !
   RD /S /Q "%INSTALL_LOCATION%\StarCitizen\LIVE\USER\Client\0\Shaders"
   ) ELSE (
-  ECHO No files found for the LIVE Environment ...
+  ECHO No files found ...
   )
 TIMEOUT /T 5
 ECHO.
 
 ECHO ===== PTU Environment :
 IF EXIST "%INSTALL_LOCATION%\StarCitizen\PTU\USER\Client\0\Shaders" (
-  ECHO Removing Shaders in the PTU Environment !
+  ECHO Removing Shaders !
   RD /S /Q "%INSTALL_LOCATION%\StarCitizen\PTU\USER\Client\0\Shaders"
   ) ELSE (
-  ECHO No files found for the PTU Environment ...
+  ECHO No files found ...
   )
 TIMEOUT /T 5
 ECHO.
