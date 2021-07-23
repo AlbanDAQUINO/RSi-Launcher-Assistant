@@ -12,7 +12,7 @@ SET STARCITIZEN_ENV=LIVE
 ECHO.
 ECHO Ultimate Shaders/USER directory cleaner for Star Citizen
 ECHO --------------------------------------------------------
-ECHO - v0.4.0 (AlexGranger)
+ECHO - v0.4.1 (AlexGranger)
 ECHO.
 ECHO - List of files :
 ECHO -- \StarCitizen\%STARCITIZEN_ENV%\USER.cfg
@@ -20,6 +20,9 @@ ECHO -- \StarCitizen\%STARCITIZEN_ENV%\USER\Client\0\Profiles\default\attributes
 ECHO -- \StarCitizen\%STARCITIZEN_ENV%\USER\Client\0\Profiles\default\actionmaps.xml
 ECHO.
 
+
+:: CD to the install directory
+CD "%INSTALL_LOCATION%"
 
 :: Backups Section
 ECHO Backups
