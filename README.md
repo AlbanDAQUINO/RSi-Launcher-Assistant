@@ -19,3 +19,5 @@ $SC_INSTALL_PATH = "C:\Program Files\Roberts Space Industries"
 _Shaders_ and _USER_ directory cleaner. **PUF**, gone ...
 
 Alex.
+
+![RSiLauncherAssistant-01](https://user-images.githubusercontent.com/1471248/127697888-a714c7cd-3438-49ea-af45-8f0aaf6f3bc5.png)
