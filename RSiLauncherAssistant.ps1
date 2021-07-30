@@ -145,7 +145,7 @@ Foreach ($SC_ENV in $SC_ENVS) {
 }
 
 
-
+Write-Host -ForegroundColor White "----- Everything under here is for testing purpose. Not functionnal ATM. -----"
 
 # Setting environements
 $SC_ENVS = ( "LIVE", "PTU" )
@@ -184,4 +184,4 @@ Foreach ($SC_ENV in $SC_ENVS) {
         }
     $SC_COLOR = "DarkYellow"
 }
-# 
+#
