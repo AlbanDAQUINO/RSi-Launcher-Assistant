@@ -1,31 +1,28 @@
 # RSi-Launcher
 
 ## EN:
-The script is to be saved in your installation directory.
+The script can now be saved anywhere. You will need to sign it or change your Execution Policy in order to be able to run it.
 
 Usually something like _"C:\Program Files\Roberts Space Industries"_.
 
-You only need to adjust the constant _'INSTALL_LOCATION'_ to your directory.
+You only need to adjust the constant _'SC_INSTALL_PATH '_ to your directory.
 
-```
-:: User Settings >>> MAKE YOUR CHANGE BELOW HERE <<<
-SET INSTALL_LOCATION=C:\Program Files\Roberts Space Industries
+```PowerShell
+# 
+# User Settings >>> MAKE YOUR CHANGES BELOW HERE <<<
+# ------------------------------------------------------------------------
+
+# Star Citizen installation directory
+$SC_INSTALL_PATH = "C:\Program Files\Roberts Space Industries"
 ```
 
 _Shaders_ and _USER_ directory cleaner. **PUF**, gone ...
 
 ## FR:
-Le script doit etre sauvegardé dans le répertoire d'installation.
+...
 
-Habituellement, un truc du genre _"C:\Program Files\Roberts Space Industries"_.
-
-Vous n'avez besoin d'ajuster qu'une seule chose, la constante _'INSTALL_LOCATION'_ pour le répertoire ou est installé le jeu.
-
-```
-:: User Settings >>> MAKE YOUR CHANGE BELOW HERE <<<
-SET INSTALL_LOCATION=C:\Program Files\Roberts Space Industries
-```
-
-Nettoyeur de répertoires _Shaders_ et _USER_. POUF, y'a plu ...
+A venir. Bientot (tm).
 
 Alex.
+
+![RSiLauncherAssistant-01](https://user-images.githubusercontent.com/1471248/127697888-a714c7cd-3438-49ea-af45-8f0aaf6f3bc5.png)
