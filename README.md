@@ -61,11 +61,12 @@ Nettoyeur de répertoire _Shaders_ et _USER_. **POUF**, y'apu ...
 Alex.
 
 ## Note(s):
-This is a bug fix release. Bare bone, with minimal features.
+This is a release candidate. Bare bone, with minimal features.
 
 
 ### Screenshot:
 _1._
 ![RSiLauncherAssistant-01](https://user-images.githubusercontent.com/1471248/127697888-a714c7cd-3438-49ea-af45-8f0aaf6f3bc5.png)
 
-Bug fix for Issue #1 
+_2._
+![RSiLauncherAssistant-02](https://user-images.githubusercontent.com/1471248/127775386-76d36e1e-46ba-4993-b852-630200df6be0.png)
