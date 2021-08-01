@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------
 
 # Star Citizen installation directory
-$SC_INSTALL_PATH = "C:\Games\Roberts Space Industries"
+$SC_INSTALL_PATH = "C:\Program Files\Roberts Space Industries"
 
 # Prefered SOURCE for backups
 $SC_ENV = "LIVE"
