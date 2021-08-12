@@ -85,17 +85,21 @@ Write-Host -ForegroundColor White "Checking Log File -----"
 if (!(Test-Path $SC_LOG_FILE)) {
     New-Item -ItemType "File" -Path $SC_LOG_PATH -Name $SC_LOG_FILE_NAME | Out-Null
     if ($SC_LOGDIR_EXIST -eq 0) {
+        Write-Output " " >> $SC_LOG_FILE
+        Write-Output "-- BEGIN --" >> $SC_LOG_FILE
         Write-Output "$DATESTAMP_PREVIOUS - Creating Logs Directory '$SC_LOG_PATH'." >> $SC_LOG_FILE
         Write-Output "$DATESTAMP - Creating Log File '$SC_LOG_FILE_NAME' in '$SC_LOG_PATH'." >> $SC_LOG_FILE
         }
     else {
+        Write-Output " " >> $SC_LOG_FILE
+        Write-Output "-- BEGIN --" >> $SC_LOG_FILE
         Write-Output "$DATESTAMP - Creating Log File '$SC_LOG_FILE_NAME' in '$SC_LOG_PATH'." >> $SC_LOG_FILE
-    }
+        }
     Write-Host -ForegroundColor DarkYellow "Creating Log File '$SC_LOG_FILE_NAME' in '$SC_LOG_PATH'."
     }
 else {
     Write-Output " " >> $SC_LOG_FILE
-    Write-Output "-----" >> $SC_LOG_FILE
+    Write-Output "-- BEGIN --" >> $SC_LOG_FILE
     Write-Output "$DATESTAMP - Opening Log File '$SC_LOG_FILE_NAME' in '$SC_LOG_PATH'." >> $SC_LOG_FILE
     Write-Host -ForegroundColor Green "Ok (Append Mode)."
     }
@@ -120,7 +124,7 @@ else {
 Write-Host -ForegroundColor White "Checking Shaders Directories -----"
 # Generating new TimeStamp
 $DATESTAMP = (Get-Date -Format "HH:mm:ss - FFFF")
-Write-Output "$DATESTAMP - Checking Shaders Directories -----" >> $SC_LOG_FILE
+Write-Output "$DATESTAMP ----- Checking Shaders Directories -----" >> $SC_LOG_FILE
 # Setting environements
 $SC_ENVS = ( "LIVE", "PTU" )
 # So for each of them ...
@@ -145,6 +149,7 @@ Foreach ($SC_ENV in $SC_ENVS) {
     }
 }
 
+
 Write-Host " "
 Write-Host " "
 Write-Host -ForegroundColor White "----- Everything under here is for testing purpose. Not functionnal ATM. -----"
@@ -153,7 +158,7 @@ Write-Host -ForegroundColor White "----- Everything under here is for testing pu
 $SC_ENVS = ( "LIVE", "PTU" )
 
 # Displaying console message
-Write-Output "$DATESTAMP - Checking backuped files -----" >> $SC_LOG_FILE
+Write-Output "$DATESTAMP ----- Checking backuped files -----" >> $SC_LOG_FILE
 Write-Host -ForegroundColor White "Checking backuped files -----"
 # Checking backuped files ...
 Foreach ($SC_ENV in $SC_ENVS) {
@@ -172,7 +177,7 @@ Foreach ($SC_ENV in $SC_ENVS) {
 
 # Checking user files for each of the environements ...
 $SC_COLOR = "Yellow"
-Write-Output "$DATESTAMP - Checking game files -----" >> $SC_LOG_FILE
+Write-Output "$DATESTAMP ----- Checking game files -----" >> $SC_LOG_FILE
 Foreach ($SC_ENV in $SC_ENVS) {
     # Displaying console message
     Write-Host -ForegroundColor White "Checking files in '$SC_ENV' -----"
@@ -188,4 +193,6 @@ Foreach ($SC_ENV in $SC_ENVS) {
 }
 # 
 
-
+# End of Script
+Write-Output "-- END --" >> $SC_LOG_FILE
+Write-Output " " >> $SC_LOG_FILE
