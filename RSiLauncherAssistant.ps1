@@ -50,6 +50,7 @@ Write-Host -ForegroundColor White " "
 Write-Host -ForegroundColor White "Ultimate Shaders/USER directory cleaner for Star Citizen"
 Write-Host -ForegroundColor White "--------------------------------------------------------"
 Write-Host -ForegroundColor White "- v0.5.0: PowerShell Conversion (AlexGranger)"
+Write-Host -ForegroundColor White "- v0.5.1: Typos & Bugs (AlexGranger)"
 Write-Host -ForegroundColor White " "
 Write-Host -ForegroundColor White "- List of files :"
 # Listing all the files in the list
@@ -76,26 +77,26 @@ else {
 
 # Test/Create Log File ...
 # Saving previous TimeStamp
-$DATESTAMP_PREVIOUS = (Echo $DATESTAMP)
+$DATESTAMP_PREVIOUS = (Write-Output $DATESTAMP)
 # Generating new TimeStamp
 $DATESTAMP = (Get-Date -Format "HH:mm:ss - FFFF")
-Write-Host -ForegroundColor White "Checking the Log File '$SC_LOG_FILE_NAME' -----"
+Write-Host -ForegroundColor White "Checking Log File -----"
 # Checking if the log file exist
 if (!(Test-Path $SC_LOG_FILE)) {
     New-Item -ItemType "File" -Path $SC_LOG_PATH -Name $SC_LOG_FILE_NAME | Out-Null
     if ($SC_LOGDIR_EXIST -eq 0) {
-        Echo "$DATESTAMP_PREVIOUS - Creating Logs Directory '$SC_LOG_PATH'." >> $SC_LOG_FILE
-        Echo "$DATESTAMP - Creating Log File '$SC_LOG_FILE_NAME' in '$SC_LOG_PATH'." >> $SC_LOG_FILE
+        Write-Output "$DATESTAMP_PREVIOUS - Creating Logs Directory '$SC_LOG_PATH'." >> $SC_LOG_FILE
+        Write-Output "$DATESTAMP - Creating Log File '$SC_LOG_FILE_NAME' in '$SC_LOG_PATH'." >> $SC_LOG_FILE
         }
     else {
-        Echo "$DATESTAMP - Creating Log File '$SC_LOG_FILE_NAME' in '$SC_LOG_PATH'." >> $SC_LOG_FILE
+        Write-Output "$DATESTAMP - Creating Log File '$SC_LOG_FILE_NAME' in '$SC_LOG_PATH'." >> $SC_LOG_FILE
     }
     Write-Host -ForegroundColor DarkYellow "Creating Log File '$SC_LOG_FILE_NAME' in '$SC_LOG_PATH'."
     }
 else {
-    Echo " " >> $SC_LOG_FILE
-    Echo "-----" >> $SC_LOG_FILE
-    Echo "$DATESTAMP - Opening Log File '$SC_LOG_FILE_NAME' in '$SC_LOG_PATH'." >> $SC_LOG_FILE
+    Write-Output " " >> $SC_LOG_FILE
+    Write-Output "-----" >> $SC_LOG_FILE
+    Write-Output "$DATESTAMP - Opening Log File '$SC_LOG_FILE_NAME' in '$SC_LOG_PATH'." >> $SC_LOG_FILE
     Write-Host -ForegroundColor Green "Ok (Append Mode)."
     }
 
@@ -106,11 +107,11 @@ $DATESTAMP = (Get-Date -Format "HH:mm:ss - FFFF")
 Write-Host -ForegroundColor White "Checking Backups Directory -----"
 if (!(Test-Path $SC_BACKUP_PATH)) {
     New-Item -ItemType "Directory" -Path $SC_INSTALL_PATH -Name $SC_BACKUP_DIRECTORY | Out-Null
-    Echo "$DATESTAMP - Creating Backups Directory '$SC_BACKUP_PATH'." >> $SC_LOG_FILE
+    Write-Output "$DATESTAMP - Creating Backups Directory '$SC_BACKUP_PATH'." >> $SC_LOG_FILE
     Write-Host -ForegroundColor DarkYellow "Creating Backups Directory '$SC_BACKUP_PATH'."
     }
 else {
-    Echo "$DATESTAMP - Using Backups Directory '$SC_BACKUP_PATH'." >> $SC_LOG_FILE
+    Write-Output "$DATESTAMP - Using Backups Directory '$SC_BACKUP_PATH'." >> $SC_LOG_FILE
     Write-Host -ForegroundColor Green "Ok."
     }
 
@@ -119,7 +120,7 @@ else {
 Write-Host -ForegroundColor White "Checking Shaders Directories -----"
 # Generating new TimeStamp
 $DATESTAMP = (Get-Date -Format "HH:mm:ss - FFFF")
-Echo "$DATESTAMP - Checking Shaders Directories -----" >> $SC_LOG_FILE
+Write-Output "$DATESTAMP - Checking Shaders Directories -----" >> $SC_LOG_FILE
 # Setting environements
 $SC_ENVS = ( "LIVE", "PTU" )
 # So for each of them ...
@@ -129,7 +130,7 @@ Foreach ($SC_ENV in $SC_ENVS) {
     if ((Test-Path $SC_SHADERS)) {
         # Generating new TimeStamp
         $DATESTAMP = (Get-Date -Format "HH:mm:ss - FFFF")
-        Echo "$DATESTAMP - Removing Shaders directory in '$SC_ENV'." >> $SC_LOG_FILE
+        Write-Output "$DATESTAMP - Removing Shaders directory in '$SC_ENV'." >> $SC_LOG_FILE
         # Removing the Shaders directory
         Remove-Item $SC_SHADERS -Force -Recurse
         # Displaying console message
@@ -138,20 +139,21 @@ Foreach ($SC_ENV in $SC_ENVS) {
     else {
         # Generating new TimeStamp
         $DATESTAMP = (Get-Date -Format "HH:mm:ss - FFFF")
-        Echo "$DATESTAMP - Ok. Nothing in '$SC_ENV'." >> $SC_LOG_FILE
+        Write-Output "$DATESTAMP - Ok. Nothing in '$SC_ENV'." >> $SC_LOG_FILE
         # Displaying console message
         Write-Host -ForegroundColor Green "Ok. Nothing in '$SC_ENV'."
     }
 }
 
-
+Write-Host " "
+Write-Host " "
 Write-Host -ForegroundColor White "----- Everything under here is for testing purpose. Not functionnal ATM. -----"
 
 # Setting environements
 $SC_ENVS = ( "LIVE", "PTU" )
 
 # Displaying console message
-Echo "$DATESTAMP - Checking backuped files -----" >> $SC_LOG_FILE
+Write-Output "$DATESTAMP - Checking backuped files -----" >> $SC_LOG_FILE
 Write-Host -ForegroundColor White "Checking backuped files -----"
 # Checking backuped files ...
 Foreach ($SC_ENV in $SC_ENVS) {
@@ -162,7 +164,7 @@ Foreach ($SC_ENV in $SC_ENVS) {
         # 
         $FILE_NAME = "$SC_INSTALL_PATH\StarCitizen\$SC_ENV\$FILE"
         $FILE_NAME = Split-Path $FILE_NAME -Leaf
-        Echo "$DATESTAMP - Checking for '$SC_ENV-$FILE_NAME'." >> $SC_LOG_FILE
+        Write-Output "$DATESTAMP - Checking for '$SC_ENV-$FILE_NAME'." >> $SC_LOG_FILE
         Write-Host -ForegroundColor Green "- '$SC_ENV-$FILE_NAME'."
         }
 }
@@ -170,7 +172,7 @@ Foreach ($SC_ENV in $SC_ENVS) {
 
 # Checking user files for each of the environements ...
 $SC_COLOR = "Yellow"
-Echo "$DATESTAMP - Checking game files -----" >> $SC_LOG_FILE
+Write-Output "$DATESTAMP - Checking game files -----" >> $SC_LOG_FILE
 Foreach ($SC_ENV in $SC_ENVS) {
     # Displaying console message
     Write-Host -ForegroundColor White "Checking files in '$SC_ENV' -----"
@@ -178,10 +180,12 @@ Foreach ($SC_ENV in $SC_ENVS) {
     Foreach ($FILE in $SC_FILES) {
         # Generating new TimeStamp
         $DATESTAMP = (Get-Date -Format "HH:mm:ss - FFFF")
-        Echo "$DATESTAMP - Checking for '$SC_ENV\$FILE'." >> $SC_LOG_FILE
+        Write-Output "$DATESTAMP - Checking for '$SC_ENV\$FILE'." >> $SC_LOG_FILE
         # 
         Write-Host -ForegroundColor $SC_COLOR "- '$SC_ENV\$FILE'."
         }
     $SC_COLOR = "DarkYellow"
 }
 # 
+
+
